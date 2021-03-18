@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
+<a href="/books/new">Add a new book</a>
 <ul>
     {% for book in books %}
     <li>
         <p>{{book.title}} {{book.author_id.name}}</p>
-        
+        <form action="/books/{{book.id}}/delete" method="POST">
+            <button>Delete item</button>
+        </form>
     </li>
 
     {% endfor %}

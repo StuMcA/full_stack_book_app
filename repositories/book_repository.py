@@ -14,8 +14,6 @@ def save(book):
     return book
 
 
-
-
 def select_all():
 
     books = []
@@ -29,4 +27,7 @@ def select_all():
     
     return books
 
-delete
+def delete(id):
+    sql = "DELETE FROM books WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
