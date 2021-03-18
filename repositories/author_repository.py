@@ -7,7 +7,6 @@ def save(author):
     sql = "INSERT INTO authors (name) VALUES (%s) RETURNING *"
     values = [author.name]
     results = run_sql(sql, values)
-    print(results)
     id = results[0]['id']
     author.id = id
     return author
@@ -19,6 +18,6 @@ def select(id):
     result = run_sql(sql, values)
 
     if result is not None:
-        author = Author(result["name"], result["id"] )
+        author = Author(result[0]["name"], result[0]["id"] )
     return author
 
